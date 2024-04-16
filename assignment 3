@@ -1,0 +1,225 @@
+Assignment 3
+SET A:
+Q.1) Write a javascript to display message ‘Exams are near, have you started preparing for?’ using
+alert, prompt and confirm boxes. Accept proper input from user and display messages accordingly.
+Ans- as3sa1.html
+<html>
+<body>
+<h1 id="ch">Welcome</h1>
+<button onclick="promptfunction()">Prompt</button> <br/> <br/>
+<button onclick="confirmfunction()">Confirm</button> <br/> <br/>
+<button onclick="alertfunction()">Alert</button> <br/> <br/>
+<script type="text/javascript">
+function promptfunction()
+{
+var temp = prompt('Exam are near, have you started preparing for it?Yes or No', 'No')
+if (temp === 'No')
+document.getElementById('ch').innerHTML ='Start preparing for the exam'
+else
+document.getElementById('ch').innerHTML = 'Best of luck'
+}
+function confirmfunction()
+{
+var temp = confirm('Exam are near, have you started preparing for it?')
+if (temp == false)
+document.getElementById('ch').innerHTML ='Start preparing for the exam'
+else
+document.getElementById('ch').innerHTML ='Best of luck'
+}
+function alertfunction()
+{
+alert('Exam are near, you should start preparing')
+document.getElementById('ch').innerHTML ='Start preparing for the exam'
+}
+</script>
+</body>
+</html>
+Q. 2) Add or append in paragraph text and also in the numbered(ordered) list in a given HTML
+document using jQuery selectors. [Hint : Use Append( ) method]
+Ans-as3sa2.html
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#btn1").click(function(){
+$("p").append(" <b>I am student of KKW college</b>.");
+});
+$("#btn2").click(function(){
+$("ol").append("<li>TYBCS</li>");
+});
+});
+</script>
+</head>
+<body>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<ol>
+<li>List item 1</li>
+<li>List item 2</li>
+<li>List item 3</li>
+</ol>
+<button id="btn1">Append Text</button>
+<button id="btn2">Append Item</button>
+</body>
+</html>
+SET B:
+Q.1) Write a javascript function to validate username and password for a membership form.
+Ans-as3sb1.html
+<html>
+<body>
+<script>
+function validateform(){
+var name=document.myform.name.value;
+var password=document.myform.password.value;
+if (name==null || name==""){
+alert("Name can't be blank");
+return false;
+}
+else if(password.length<6)
+{
+alert("Password must be at least 6 characters long.");
+return false;
+}
+}
+</script>
+<body>
+<form name="myform" method="post" action="http://www.javatpoint.com/javascriptpages/valid.jsp"
+onsubmit="return validateform()" >
+Name: <input type="text" name="name"><br/>
+Password: <input type="password" name="password"><br/>
+<input type="submit" value="register">
+</form>
+</body>
+</html>
+Q.2) To insert text before and after an image using jQuery. [Hint : Use before( ) and after( )]
+Ans-as3sb2.html
+Note- image should present in folder (img)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inserting HTML Contents Before or After the Elements in jQuery</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("#container").after("<p>&mdash; The End &mdash;</p>");
+$("#container").before("<p>&mdash; Demo Text &mdash;</p>");
+$("button.insert-after").click(function(){
+$("h1").after(" <b>Hello World</b> ");
+});
+$("button.insert-before").click(function(){
+$("h1").before(" <b> Hello World </b> ");
+});
+});
+</script>
+<style>
+h1{
+display: inline-block;
+}
+body
+{
+text-align: center;
+}
+</style>
+</head>
+<body>
+<h1><img src="img.jpg" alt="Symbol"width="320" height="320" ></h1>
+<hr>
+<button type="button" class="insert-before">Insert Before</button>
+<button type="button" class="insert-after">Insert After</button>
+<hr>
+</body>
+</html>
+SET C:
+Q.1) Write a Javascript program to accept name of student, change font color to red, font size to 18 if
+student name is present otherwise on clicking on empty text box display image which changes its size
+(Use onblur, onload, onmousehover, onmouseclick, onmouseup)
+Ans-as3sc1.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Name Input</title>
+</head>
+<body>
+<input type="text" id="studentName" placeholder="Enter student name">
+<br><br>
+<div id="imageDiv" style="display: none;">
+<img id="changeImage" src="img.jpg" width="200" />
+</div>
+<script>
+document.getElementById('studentName').addEventListener('input', function() {
+let studentName = document.getElementById('studentName').value;
+if (studentName)
+{
+document.getElementById('studentName').style.color = 'red';
+document.getElementById('studentName').style.fontSize = '18px';
+}
+});
+document.getElementById('studentName').addEventListener('click', function() {
+document.getElementById('imageDiv').style.display = 'block';
+});
+document.getElementById('changeImage').addEventListener('mouseover', function() {
+this.style.width = '250px';
+});
+document.getElementById('changeImage').addEventListener('mouseout', function() {
+this.style.width = '300px';
+});
+document.getElementById('changeImage').addEventListener('mouseup', function() {
+this.style.width = '500px';
+});
+document.getElementById('changeImage').addEventListener('click', function() {
+this.style.width = '700px';
+});
+</script>
+</body>
+</html>
+Q.2) Remove div section elements after clicking on button using jQuery. [Hint : Use #id selector]
+Ans-as3sc2.html
+<head>
+<title>
+How to remove an HTML element
+using JavaScript ?
+</title>
+<style>
+#GFG_DIV {
+background: pink;
+height: 100px;
+width: 200px;
+margin: 0 auto;
+color: white;
+}
+</style>
+</head>
+<body style = "text-align:center;">
+<h1 style = "color:blue;" >
+I am student of TYBCS
+</h1>
+<p id = "GFG_UP" style =
+"font-size: 19px; font-weight: bold;">
+</p>
+<div id = "GFG_DIV">
+This is Div box.
+</div>
+<br>
+<button onClick = "GFG_Fun()">
+click here
+</button>
+<p id = "selector" style =
+"color: green; font-size: 24px; font-weight: bold;">
+</p>
+<!-- Script to remove HTML element -->
+<script>
+var up = document.getElementById('GFG_UP');
+var down = document.getElementById('selector');
+var div = document.getElementById('GFG_DIV');
+up.innerHTML = "Click on button to remove the element.";
+function GFG_Fun() {
+div.parentNode.removeChild(div);
+down.innerHTML = "Element is removed.";
+}
+</script>
+</body>
+</html>
